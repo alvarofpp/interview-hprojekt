@@ -89,6 +89,29 @@ function random_numbers(int $quantity = 5): array
 | Lewuis Hamilton |
 | Nico Rosberg |
 
+## Questão 07
+
+```mysql
+DROP FUNCTION IF EXISTS fnValCoordenadas;
+CREATE FUNCTION fnValCoordenadas(
+  in_coord VARCHAR(20),
+  in_tipo CHAR(1)
+) RETURNS VARCHAR(20) CHARSET latin1
+BEGIN
+  IF (in_coord NOT REGEXP '^(-|\\+)?([0-9]+\\.[0-9]*|[0-9]*\\.[0-9]+|[0-9]+)$') THEN
+    SET in_coord = NULL;
+  END IF;
+  RETURN in_coord;
+END;
+
+SELECT fnValCoordenadas('-3.45', 1) = -3.45;
+SELECT fnValCoordenadas('+3.0', 1) = 3.0;
+SELECT fnValCoordenadas('3.', 1) = 3.;
+SELECT fnValCoordenadas('', 2) IS NULL;
+SELECT fnValCoordenadas('Alvaro', 2) IS NULL;
+SELECT fnValCoordenadas('asd.123', 2) IS NULL;
+```
+
 ## Questão 08
 
 ```mysql
@@ -104,6 +127,6 @@ ADD COLUMN ativo ENUM(0, 1) DEFAULT 0;
 
 Por se tratar de uma tabela de dados, creio então que pertenceria a um banco de dados, portanto armazenaria usando o Amazon Relational Database Service (RDS).
 
-Se fosse uma tabela de dados simples que, por exemplo, armazenar-se constantes que praticamente não fossem alteradas (ou raramente alteradas), que seriam carregadas uma única vez (ou poucas vezes) e armazenadas em alguma memória durante a execução de um sistema, poderia converter isso para um arquivo (tipo CSV) e armazenar no Amazon S3.
+Se fosse uma tabela de dados simples que, por exemplo, armazenar-se constantes que praticamente não fossem alteradas (ou raramente alteradas), que seriam carregadas poucas vezes e armazenadas em alguma memória durante a execução de um sistema, poderia converter isso para um arquivo (tipo CSV) e armazenar no Amazon S3.
 
 Dependendo de como esses dados seriam salvos e usados no sistema, serviços como o Amazon Elastic File System (EFS) poderiam ser usados.
