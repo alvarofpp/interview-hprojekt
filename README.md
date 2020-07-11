@@ -84,3 +84,10 @@ function random_numbers(int $quantity = 5): array
 | Kimi Raikkonen |
 | Lewuis Hamilton |
 | Nico Rosberg |
+
+## Questão 08
+
+```mysql
+ALTER TABLE cadastro
+ADD COLUMN ativo ENUM(0, 1) DEFAULT 0;
+```
