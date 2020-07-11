@@ -64,6 +64,19 @@ function remove_duplicates(string $words): string
 
 ## Questão 05
 
+```php
+<?php
+
+function random_numbers(int $quantity = 5): array
+{
+    $numbers = range(1, 9);
+    shuffle($numbers);
+    return array_slice($numbers, 0, $quantity);
+}
+```
+
+## Questão 06
+
 | Piloto |
 | ------ |
 | Kimi Raikkonen |
