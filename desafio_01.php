@@ -1,6 +1,6 @@
 <?php
 
-function get_real_floor(int $number)
+function get_real_floor(int $number): int
 {
     if ($number < 0) {
         return $number;
