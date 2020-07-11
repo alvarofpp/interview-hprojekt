@@ -1,5 +1,9 @@
 # vagas-hprojekt
 
+Candidato: Álvaro Ferreira Pires de Paiva.
+
+----------
+
 ## Questão 01
 
 ```php
@@ -91,3 +95,15 @@ function random_numbers(int $quantity = 5): array
 ALTER TABLE cadastro
 ADD COLUMN ativo ENUM(0, 1) DEFAULT 0;
 ```
+
+## Questão 09
+
+`ERROR 1366 (HY000) at line 5: Incorrect decimal value: '1,234' for column 'valor' at row 2`
+
+## Questão 10
+
+Por se tratar de uma tabela de dados, creio então que pertenceria a um banco de dados, portanto armazenaria usando o Amazon Relational Database Service (RDS).
+
+Se fosse uma tabela de dados simples que, por exemplo, armazenar-se constantes que praticamente não fossem alteradas (ou raramente alteradas), que seriam carregadas uma única vez (ou poucas vezes) e armazenadas em alguma memória durante a execução de um sistema, poderia converter isso para um arquivo (tipo CSV) e armazenar no Amazon S3.
+
+Dependendo de como esses dados seriam salvos e usados no sistema, serviços como o Amazon Elastic File System (EFS) poderiam ser usados.
