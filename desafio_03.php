@@ -22,5 +22,5 @@ foreach ($tests as $test) {
     } else {
         $case .= 'NOT OKAY';
     }
-    echo $case."<br/>";
+    echo $case . "<br/>";
 }

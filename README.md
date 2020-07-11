@@ -16,6 +16,7 @@ function get_real_floor(int $number): int
     }
 
     $floor = floor($number / 13);
+
     return $number - ($floor + 1);
 }
 ```
@@ -71,6 +72,7 @@ function random_numbers(int $quantity = 5): array
 {
     $numbers = range(1, 9);
     shuffle($numbers);
+
     return array_slice($numbers, 0, $quantity);
 }
 ```

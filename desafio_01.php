@@ -11,6 +11,7 @@ function get_real_floor(int $number): int
     }
 
     $floor = floor($number / 13);
+
     return $number - ($floor + 1);
 }
 
@@ -24,5 +25,5 @@ $tests = [
 ];
 
 foreach ($tests as $test) {
-    echo (get_real_floor($test['input']) == $test['output'])."<br/>";
+    echo (get_real_floor($test['input']) == $test['output']) . "<br/>";
 }
